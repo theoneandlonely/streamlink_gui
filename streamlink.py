@@ -26,7 +26,15 @@ def start_streamlink():
         base = "_".join(parts)
         filename = base + ext
 
-    command = [STREAMLINK_PATH, "-o", filename, url, "best"]
+    command = [
+        STREAMLINK_PATH,
+        "-o",
+        filename,
+        url,
+        "best",
+        "--twitch-disable-ads",
+        "--twitch-low-latency"
+    ]
 
     # Starte den Streamlink-Prozess im Hintergrund
     subprocess.Popen(command)
